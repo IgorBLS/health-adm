@@ -39,8 +39,8 @@ export default function App() {
         flex={1}
       >
         <VStack space={5} alignItems="center">
-          <Counter name="A" onChange={(value) => {setValueA(value)}}/>
-          <Counter name="B" onChange={(value) => {setValueB(value)}}/>
+          <Counter name="A" value={valueA} onChange={(value) => {setValueA(value)}}/>
+          <Counter name="B" value={valueB} onChange={(value) => {setValueB(value)}}/>
           <div>Total: {valueA + valueB}</div>
           <ToggleDarkMode />
         </VStack>
