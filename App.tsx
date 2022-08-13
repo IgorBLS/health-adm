@@ -12,7 +12,7 @@ import {
   VStack,
   Box,
 } from "native-base";
-import Counter from './counter/Counter';
+import NativeBaseIcon from "./components/NativeBaseIcon";
 
 // Define the config
 const config = {
@@ -27,9 +27,6 @@ declare module "native-base" {
   interface ICustomTheme extends MyThemeType {}
 }
 export default function App() {
-  const [valueA, setValueA] = useState<number>(0);
-  const [valueB, setValueB] = useState<number>(0);
-  console.log('oi app');
   return (
     <NativeBaseProvider>
       <Center
@@ -39,9 +36,31 @@ export default function App() {
         flex={1}
       >
         <VStack space={5} alignItems="center">
-          <Counter name="A" value={valueA} onChange={(value) => {setValueA(value)}}/>
-          <Counter name="B" value={valueB} onChange={(value) => {setValueB(value)}}/>
-          <div>Total: {valueA + valueB}</div>
+          <NativeBaseIcon />
+          <Heading size="lg">Welcome to NativeBase</Heading>
+          <HStack space={2} alignItems="center">
+            <Text>Edit</Text>
+            <Box
+              _web={{
+                _text: {
+                  fontFamily: "monospace",
+                  fontSize: "sm",
+                },
+              }}
+              px={2}
+              py={1}
+              _dark={{ bg: "blueGray.800" }}
+              _light={{ bg: "blueGray.200" }}
+            >
+              App.js
+            </Box>
+            <Text>and save to reload.</Text>
+          </HStack>
+          <Link href="https://docs.nativebase.io" isExternal>
+            <Text color="primary.500" underline fontSize={"xl"}>
+              Learn NativeBase
+            </Text>
+          </Link>
           <ToggleDarkMode />
         </VStack>
       </Center>
