@@ -1,14 +1,15 @@
 import { AddIcon, Avatar, Box, Button, Heading, HStack, Text, VStack } from "native-base";
-import { useCallback, useState } from "react";
-import PatientCard from "../components/PatientCard";
+import Patient from "./Patient";
+import Schedule from "./Schedule";
+import Procedures from "./Procedures";
 
 interface HomeProps {
-    user: string,
-    bank: number
+    user: string;
+    bank: number;
 }
 
 const Home = (homeProps: HomeProps) => {
-
+  
   const today = (new Date())
     .toLocaleString('pt-BR', {weekday: 'long', day: 'numeric', month: 'long'})
     .split(' ')
@@ -21,7 +22,7 @@ const Home = (homeProps: HomeProps) => {
     .replace('De', 'de')
     .replace('  ', ', ');
 
-  const bankF = homeProps.bank.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+  const bankF = homeProps.bank.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
 
   return (
     <VStack>
@@ -33,7 +34,7 @@ const Home = (homeProps: HomeProps) => {
               <Avatar bg="success.600" height="8px" width="8px"/>
             </Avatar>
           </Box>
-          <VStack paddingLeft="8px" height="100%" width="215px" paddingRight="40px">
+          <VStack paddingLeft="8px" height="100%" width="215px">
             <Heading color="text.800" size="sm">Olá, {homeProps.user}</Heading>
             <Text color="text.500" size="sm">{today}</Text>
           </VStack>
@@ -51,21 +52,12 @@ const Home = (homeProps: HomeProps) => {
           <Button variant="unstyled" width="78px"><Text color="secondary.600" fontSize="xs" paddingLeft="10px">Ver extrato</Text></Button>
         </Box>
       </Box>
-
       <Box height="651px" paddingX="16px" width="100%">
-        <VStack  paddingTop="16px" width="100%">
-          <HStack justifyContent="space-between" alignItems="center" width="100%">
-            <Heading color="text.800" size="md">Agenda</Heading>
-            <Button variant="ghost" size="md">Ver todos</Button>
-          </HStack>
-          <Text color="muted.500" fontSize="sm" fontWeight="bold">Hoje</Text>
-
-          <PatientCard doctor={homeProps.user.substring(0,2)} name="Carla Novaes" procedure="Limpeza de pele"/>
-          <PatientCard doctor={homeProps.user.substring(0,2)} name="Carla Novaes" procedure="Limpeza de pele"/>
-          <PatientCard doctor={homeProps.user.substring(0,2)} name="Carla Novaes" procedure="Limpeza de pele"/>
-
-        </VStack>        
-
+        <VStack space="24px" paddingTop="6px" width="100%">
+          <Schedule/>
+          <Patient />
+          <Procedures />
+        </VStack>
       </Box>
     </VStack>
   );
