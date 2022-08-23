@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Center, extendTheme, NativeBaseProvider} from "native-base";
+import {Box, Center, extendTheme, NativeBaseProvider, ScrollView} from "native-base";
 import Login from "./screens/Login";
 import Home from "./screens/Home"
 import {useFonts} from 'expo-font';
@@ -76,12 +76,14 @@ export default function App() {
   });
 
   return (
-    <NativeBaseProvider theme={theme}>
-      <Center>
-        <Box width="320px" height="568px">
-          <Home user="Luciana" bank={8000}/>
-        </Box>
-      </Center>
+    <NativeBaseProvider /*theme={theme}*/>
+      <ScrollView>
+        <Center>
+          <Box maxW="320px" paddingX="16px" w="100%">
+            <Home user="Luciana" bank={8000}/>
+          </Box>
+        </Center>
+      </ScrollView>
     </NativeBaseProvider>
   );
 }
