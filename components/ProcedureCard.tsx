@@ -9,7 +9,6 @@ const ProcedureCard = (procedureCardProps: ProcedureCardProps) => {
 
   const priceF = 'R$ ' + procedureCardProps.procedure.price.toFixed(2).replace('.', ',');
   
-
   return (
     <Box bg="white">
       <HStack alignItems="center">

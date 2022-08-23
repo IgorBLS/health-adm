@@ -5,7 +5,6 @@ import Procedures from './Procedures';
 import { format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 import { BackHandler } from "react-native";
-
 interface HomeProps {
     user: string;
     bank: number;
@@ -20,8 +19,7 @@ function getDate(string: string) : string {
 }
 
 const Home = (homeProps: HomeProps) => {
-  
-  const weekday = getDate('EEEE, d').replace('-feira', '');
+    const weekday = getDate('EEEE, d').replace('-feira', '');
   const month = getDate('MMMM');
   const today = weekday + ' de ' + month;
 
@@ -56,10 +54,9 @@ const Home = (homeProps: HomeProps) => {
             <Text color="secondary.600" fontSize="xs">Ver extrato</Text>
           </Button>
         </Box>
-      </Box>
-      
+      </Box>      
       <Box w="100%">
-        <VStack space="24px" paddingTop="6px" w="100%">
+        <VStack space="24px" pt="6px" w="100%">
           <Schedule />
           <Patient />
           <Procedures />

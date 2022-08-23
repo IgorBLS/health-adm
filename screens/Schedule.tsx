@@ -8,7 +8,11 @@ const Schedule = () => {
 
   const [patients, setPatients] = useState<Patient[] | null>(
     [
+<<<<<<< HEAD
       {name: 'Allan Lobo',       procedure: {title: 'Limpeza de pele',      description: 'Limpeza facial',                      price: 150, date: new Date ('August 22, 2022 07:00:00')}},
+=======
+      {name: 'Igor Lobo',       procedure: {title: 'Limpeza de pele',      description: 'Limpeza facial',                      price: 150, date: new Date ('August 22, 2022 07:00:00')}},
+>>>>>>> a7f3965d3e1f10ab12701deb262dc86d62afc960
       {name: 'Jean Paulo',      procedure: {title: 'Preenchimento labial', description: 'Preenchimento com ácido hialurônico', price: 250, date: new Date ('August 22, 2022 08:00:00')}},
       {name: 'Thayse Nara',     procedure: {title: 'Aplicação de botox',   description: 'Botox de sobrancelha',                price: 200, date: new Date ('August 22, 2022 09:00:00')}},
       {name: 'Yasmin Salsicha', procedure: {title: 'Micro agulhamento',    description: 'Micro agulhamento',                   price: 150, date: new Date ('August 22, 2022 10:00:00')}},
